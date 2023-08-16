@@ -10,14 +10,14 @@ public class EnemySpawner : MonoBehaviour
     // 적위치
     private float[] arrPosX = { -3f, -1.5f, 0f, 1.5f, 3f };
 
+    // enemy spawn speed
     [SerializeField]
-    private float spawnInterval = 1.5f;
+    private float spawnInterval = 2.5f;
 
 
     void Start()
     {
         StartEnemyRoutine();
-
     }
 
     void StartEnemyRoutine()
@@ -30,52 +30,49 @@ public class EnemySpawner : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         int spawnCount = 0;
+        int enemyIndex = 0;
 
         while (true)
         {
-            List<int> selectedPositions = new List<int>();
-            while (selectedPositions.Count <3)
+            foreach (float posX in arrPosX)
             {
-                int randomPositionIndex = Random.Range(0, arrPosX.Length);
-                if (!selectedPositions.Contains(randomPositionIndex))
-                {
-                    selectedPositions.Add(randomPositionIndex);
-                }
+                SpawnEnemy(posX, enemyIndex);
+
             }
-
-            foreach (int positionIndex in selectedPositions)
-            {
-                int randomEnemyIndex = Random.Range(1, 5); // 1부터 4 사이의 랜덤한 인덱스 선택
-                float randomPosX = arrPosX[positionIndex]; // 선택한 위치 인덱스에 해당하는 X 위치
-
-                SpawnEnemy(randomPosX, randomEnemyIndex);
-            }
-
-
 
             spawnCount += 1;
-            if (spawnCount % 10 == 0) // 10번마다 적 종류 변경
+            if (spawnCount % 10 == 0) //10번씩 나옴
             {
-               
+                enemyIndex += 1;
             }
 
             yield return new WaitForSeconds(spawnInterval);
         }
+
+
     }
 
     void SpawnEnemy(float posX, int index)
     {
         Vector3 spawnPos = new Vector3(posX, transform.position.y, transform.position.z);
 
-     
+        if (Random.Range(0, 5) == 0)//0,1,2,3,4 -> 0 (20% next enemy appear)
+        {
+            index += 1;
+        }
 
 
-           
+        //적의 수를 넘어가지않게 오류 방\지 (max enemy5)
+        if (index >= enemies.Length)
+        {
+            index = enemies.Length - 1;
+        }
 
         Instantiate(enemies[index], spawnPos, Quaternion.identity);
+
+
+
     }
-
-
 
 
     void Update()
@@ -84,6 +81,6 @@ public class EnemySpawner : MonoBehaviour
     }
 }
 
-//enemy1이 제일 약한 적    ㄱ    enemy5가 가장 쎈 적
-//순서대로 10번씩 나오는데 20%확률로 다른 적들이 섞여서 나
+//enemy1이 제일 약한 적, enemy5가 가장 쎈 적
+//Enemies 1 to 5 come out 10 times in order, the next enemy are mixed in 20% probability
 
