@@ -77,7 +77,7 @@ public class ReefSpawner : MonoBehaviour
         // 랜덤한 인덱스에 해당하는 배열 요소 출력
         int randomNumber = numbers[randomIndex];
         //배열 중 랜덤 위치에 생성
-        Instantiate(Reef, new Vector3(randomNumber, 1, 8), transform.rotation);
+        Instantiate(Reef, new Vector3(randomNumber, 1, 14), transform.rotation);
     }
 
     
