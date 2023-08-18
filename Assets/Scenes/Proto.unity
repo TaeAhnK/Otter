@@ -124,6 +124,7 @@ NavMeshSettings:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &490867713
+--- !u!1 &84974241
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,6 +136,10 @@ GameObject:
   - component: {fileID: 490867714}
   m_Layer: 0
   m_Name: EnemySpawner
+  - component: {fileID: 84974242}
+  - component: {fileID: 84974243}
+  m_Layer: 0
+  m_Name: ShellShooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,6 +165,7 @@ MonoBehaviour:
   - {fileID: 7262391919889175060, guid: 4c7593a3d67da4008a95c3aa9364d461, type: 3}
   spawnInterval: 2.5
 --- !u!4 &490867715
+--- !u!4 &84974242
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,11 +175,29 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 14}
+  m_GameObject: {fileID: 84974241}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &84974243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84974241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4268e1f1accf2234f9f711676448bb53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shellReady: {fileID: 4556573023863872328, guid: 728df1290fd890b42ba944672dedc19d, type: 3}
+  shellPos: {fileID: 1498586040}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,3 +768,4 @@ SceneRoots:
   - {fileID: 1498586044}
   - {fileID: 490867715}
   - {fileID: 810386658}
+  - {fileID: 84974242}
