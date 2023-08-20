@@ -12,12 +12,30 @@ public class Otter : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
         DragMovement();
+    }
+
+    private void OnTriggerEnter(Collider collide)
+    {
+        if (collide.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Otter Hit Enemy");
+        }
+
+        if (collide.gameObject.CompareTag("Reef"))
+        {
+            Debug.Log("Otter Hit Reef");
+        }
+
+        if (collide.gameObject.CompareTag("Item"))
+        {
+            Debug.Log("Otter Hit Item");
+        }
     }
 
     // Drag Movement
