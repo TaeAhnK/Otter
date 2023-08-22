@@ -16,13 +16,13 @@ public class DoubleScoreItem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            ApplyDoubleScoreEffect();
+            ApplyEffect();
             StartCoroutine(DeactivateDoubleScoreEffect());
             Destroy(gameObject); // 아이템을 획득하면 아이템 제거
         }
     }
 
-    private void ApplyDoubleScoreEffect()
+    public void ApplyEffect()
     {
         // 아우라 이펙트 활성화
         auraEffect.SetActive(true);

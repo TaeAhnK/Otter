@@ -17,13 +17,13 @@ public class HyperWaveItem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            ApplyHyperWaveEffect();
+            ApplyEffect();
             StartCoroutine(DeactivateHyperWaveEffect());
             Destroy(gameObject); // 아이템을 획득하면 아이템 제거
         }
     }
 
-    private void ApplyHyperWaveEffect()
+    public void ApplyEffect()
     {
         // 급류 이펙트 활성화
         whirlpoolEffect.SetActive(true);

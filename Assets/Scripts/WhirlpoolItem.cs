@@ -23,13 +23,13 @@ public class WhirlpoolItem : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            ApplyWhirlpoolEffect();
+            ApplyEffect();
             StartCoroutine(DeactivateWhirlpoolEffect());
             Destroy(gameObject); // 아이템을 획득하면 아이템 제거
         }
     }
 
-    private void ApplyWhirlpoolEffect()
+    public void ApplyEffect()
     {
         // 회오리 이펙트 활성화
         whirlpoolEffect.SetActive(true);
