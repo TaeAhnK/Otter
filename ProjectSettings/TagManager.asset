@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Otter
+  - Shell
+  - Reef
+  - Item
+  - Boss
   layers:
   - Default
   - TransparentFX

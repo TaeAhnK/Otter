@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ReefSpawner : MonoBehaviour
 {
-    
-    public GameObject Reef; 
-    public float SpawnRate=2;
+
+    public GameObject Reef;
+    public float SpawnRate = 2;
     //동시다발 시 암초가 나오는 주기 
     private float RealTime = 0;
     //실제 시간
@@ -21,57 +21,57 @@ public class ReefSpawner : MonoBehaviour
 
     //암초 위치 배열
     int[] numbers = new int[5] { -3, -1, 0, 1, 3 };
-    
-    
+
+
     void Update()
     {
-        RealTime+=Time.deltaTime;
-        timer+=Time.deltaTime;
+        RealTime += Time.deltaTime;
+        timer += Time.deltaTime;
 
-        if(flag == true && RealTime>10)
+        if (flag == true && RealTime > 10)
         //실제 시간이 10초가 됐을 때 동시다발적
         {
-            
-            if( flag2== false && timer>SpawnRate)
+
+            if (flag2 == false && timer > SpawnRate)
             //SpawnRate마다 암초가 나오도록
             {
-                Debug.Log("동시다발");
+                //Debug.Log("동시다발");
                 SpawnReef();
                 count++;
-                Debug.Log("더하기");
+                //Debug.Log("더하기");
                 timer = 0;
-                
-                if(count>5)
+
+                if (count > 5)
                 //나온 암초가 5개가 돼었을 때
                 {
-                    count =0;
+                    count = 0;
                     //암초개수 초기화
                     RealTime = 0;
                     //실제시간 초기화
                     flag = false;
-                    flag2=true;
+                    flag2 = true;
                 }
-                flag2=false;
+                flag2 = false;
             }
-            
+
         }
 
-        if(flag == false && RealTime>5)
+        if (flag == false && RealTime > 5)
         //실제 시간이 5초가 됐을 때
         {
             SpawnReef();
             flag = true;
             //flag를 true로 변경시켜 맨 위의 if문으로 이동
-            RealTime+=Time.deltaTime;
-            Debug.Log("한 번");
-            
+            RealTime += Time.deltaTime;
+            //Debug.Log("한 번");
+
         }
     }
 
-    
+
 
     void SpawnReef()
-    {   
+    {
         // 배열에서 랜덤한 인덱스를 생성
         int randomIndex = Random.Range(0, 5);
         // 랜덤한 인덱스에 해당하는 배열 요소 출력
@@ -80,6 +80,6 @@ public class ReefSpawner : MonoBehaviour
         Instantiate(Reef, new Vector3(randomNumber, 1, 14), transform.rotation);
     }
 
-    
+
 
 }
