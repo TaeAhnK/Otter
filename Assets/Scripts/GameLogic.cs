@@ -27,7 +27,7 @@ public class GameLogic : MonoBehaviour
 
     void Start()
     {
-
+        otterLife = 3;
     }
 
     void Update()
