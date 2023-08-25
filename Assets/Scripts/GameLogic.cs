@@ -14,6 +14,8 @@ public class GameLogic : MonoBehaviour
     private int otterLife;          // Otter Life
     private int otterEXP;
 
+    
+
     // Enemy Info
     private float enemySpeed;       // Enemy Move Speed
     private float reefSpeed;        // Rate Move Speed
@@ -25,13 +27,26 @@ public class GameLogic : MonoBehaviour
     bool slow;                      // Slow enemy and reef
     bool doubleScore;               // Gets double score
 
+
+    private float minSpawnDelay = 10f; // 적 생성 간격의 최소값
+    private float maxSpawnDelay = 15f;// 적 생성 간격의 최대값
+    private float nextSpawnTime;
+
     void Start()
     {
+        SetNextSpawnTime();
         otterLife = 3;
     }
 
     void Update()
     {
+        if (Time.time >= nextSpawnTime)
+        {
+            enemySpawner.GetComponent<EnemySpawner>().StartEnemyRoutine(); // Start spawning enemies using EnemySpawner.
+            SetNextSpawnTime();
+        }
+
+
 
     }
 
@@ -92,9 +107,15 @@ public class GameLogic : MonoBehaviour
 
     private void spawnEnemy()
     {
-
+        
     }
 
+    private void SetNextSpawnTime()
+    {
+        float randomDelay = Random.Range(minSpawnDelay, maxSpawnDelay);
+        nextSpawnTime = Time.time + randomDelay; // Set the time for the next enemy spawn.
+
+    }
     private void spawnReef()
     {
 

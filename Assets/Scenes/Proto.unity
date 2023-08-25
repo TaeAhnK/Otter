@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -184,7 +184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otter: {fileID: 1498586040}
-  enemySpawner: {fileID: 0}
+  enemySpawner: {fileID: 1514002580}
+  otter: {fileID: 1498586040}
   reefSpawner: {fileID: 0}
 --- !u!4 &87540637
 Transform:
@@ -751,7 +752,7 @@ MonoBehaviour:
   - {fileID: 7262391919889175060, guid: 754010ffb53ed47879dd224dfa0a5712, type: 3}
   - {fileID: 7262391919889175060, guid: e376e44c4dee046b7841268be52df67a, type: 3}
   - {fileID: 7262391919889175060, guid: 4c7593a3d67da4008a95c3aa9364d461, type: 3}
-  spawnInterval: 2.5
+  spawnInterval: 3
 --- !u!4 &1514002582
 Transform:
   m_ObjectHideFlags: 0
