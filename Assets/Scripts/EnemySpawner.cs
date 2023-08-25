@@ -7,50 +7,55 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private GameObject[] enemies;
 
-    // 적위치
+    // 적 위치 배열
     private float[] arrPosX = { -3f, -1.5f, 0f, 1.5f, 3f };
 
-    // enemy spawn speed
     [SerializeField]
-    public float spawnInterval = 3f;
+    public float spawnInterval = 5f;//적의 생성 간격
+
+    private float enemySpeed = 5f;//적의 초기 이동 속도 설정
+    private float nextSpawnTime;
+    private int spawnCount = 0;
+    private int enemyIndex = 0;
 
 
     void Start()
     {
-        StartEnemyRoutine();
+        SetNextSpawnTime(); //초기 생성 간격 설정
+        StartEnemyRoutine(); //첫번째 적 생성 루틴 시작
     }
 
     public void StartEnemyRoutine()
     {
-        StartCoroutine("EnemyRoutine");
+        StartCoroutine("EnemyRoutine"); // 적생성 루틴 시작 
     }
 
     IEnumerator EnemyRoutine()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2); //시작 후 2초 대기
 
-        int spawnCount = 0;
-        int enemyIndex = 0;
 
         while (true)
         {
             foreach (float posX in arrPosX)
             {
-                SpawnEnemy(posX, enemyIndex);
+                SpawnEnemy(posX, enemyIndex); //적 생성 함수 호출
 
             }
-
             spawnCount += 1;
-            if (spawnCount % 10 == 0) //10번씩 나옴
+            if (spawnCount % 10 == 0) //적 10번씩 생성
             {
                 enemyIndex += 1;
             }
 
-            yield return new WaitForSeconds(spawnInterval);
+            yield return new WaitForSeconds(spawnInterval); // 다음 적 생성까지 간격 대기
         }
 
 
     }
+
+
+
 
     void SpawnEnemy(float posX, int index)
     {
@@ -60,27 +65,30 @@ public class EnemySpawner : MonoBehaviour
         {
             index += 1;
         }
-
-
-        //적의 수를 넘어가지않게 오류 방\지 (max enemy5)
         if (index >= enemies.Length)
         {
-            index = enemies.Length - 1;
+            index = enemies.Length - 1; // 인덱스가 적의 배열 범위를 벗어나지 않도록 설정
         }
 
-        Instantiate(enemies[index], spawnPos, Quaternion.identity);
-
-
-
+        Instantiate(enemies[index], spawnPos, Quaternion.identity); //적 생성
     }
 
+
+
+
+    private void SetNextSpawnTime()
+    {
+        nextSpawnTime = Time.time + spawnInterval; //다음 적 생성 시간 설정
+    }
+
+    public void SetEnemySpeed(float speed)
+    {
+        enemySpeed = speed; //적의 이동속도 설정
+    }
 
     void Update()
     {
 
     }
+
 }
-
-//enemy1이 제일 약한 적, enemy5가 가장 쎈 적
-//Enemies 1 to 5 come out 10 times in order, the next enemy are mixed in 20% probability
-

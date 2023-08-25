@@ -750,7 +750,7 @@ MonoBehaviour:
   - {fileID: 7262391919889175060, guid: 754010ffb53ed47879dd224dfa0a5712, type: 3}
   - {fileID: 7262391919889175060, guid: e376e44c4dee046b7841268be52df67a, type: 3}
   - {fileID: 7262391919889175060, guid: 4c7593a3d67da4008a95c3aa9364d461, type: 3}
-  spawnInterval: 3
+  spawnInterval: 5
 --- !u!4 &1514002582
 Transform:
   m_ObjectHideFlags: 0
