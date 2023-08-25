@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Otter : MonoBehaviour
 {
+    public GameObject gameLogic;
+
     private float deadX = 7f;
     void Awake()
     {
@@ -22,20 +24,27 @@ public class Otter : MonoBehaviour
 
     private void OnTriggerEnter(Collider collide)
     {
+        // Collision with Enemy
         if (collide.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Otter Hit Enemy");
+            gameLogic.GetComponent<GameLogic>().addOtterLife(-1);
+            Debug.Log("Otter Hit Enemy: " + gameLogic.GetComponent<GameLogic>().getOtterLife());
         }
 
+        // Collision with Reef
         if (collide.gameObject.CompareTag("Reef"))
+
+
         {
-            Debug.Log("Otter Hit Reef");
+            gameLogic.GetComponent<GameLogic>().addOtterLife(-1);
+            Debug.Log("Otter Hit Reef: " + gameLogic.GetComponent<GameLogic>().getOtterLife());
         }
 
-        if (collide.gameObject.CompareTag("Item"))
-        {
-            Debug.Log("Otter Hit Item");
-        }
+        // Collision with Item
+        // if (collide.gameObject.CompareTag("Item"))
+        // {
+        //     Debug.Log("Otter Hit Item");
+        // }
     }
 
     // Drag Movement
@@ -46,5 +55,11 @@ public class Otter : MonoBehaviour
             //Debug.Log(0.01f * Input.GetTouch(0).position.x);
             transform.position = new Vector3((Input.GetTouch(0).position.x - Screen.width / 2) * (deadX / Screen.width), 0, 0);
         }
+    }
+
+    // When Dies
+    public void OtterDeath()
+    {
+        Debug.Log("Otter Death");
     }
 }

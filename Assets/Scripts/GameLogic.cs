@@ -34,6 +34,7 @@ public class GameLogic : MonoBehaviour
     void Start()
     {
         SetNextSpawnTime();
+        otterLife = 3;
     }
 
     void Update()
