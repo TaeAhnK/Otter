@@ -4,21 +4,34 @@ using UnityEngine;
 
 public class Otter : MonoBehaviour
 {
-    private static Otter instance;
-    public static Otter Instance { get { return instance; } }
+//<<<<<<< choiseoyeon
+//    private static Otter instance;
+//    public static Otter Instance { get { return instance; } }
+//
+//    private float deadX = 7f;
+//
+//    private void Awake()
+//    {
+//        if (instance == null)
+//        {
+//            instance = this;
+//        }
+//        else
+//        {
+ //           Destroy(gameObject);
+//        }
+//=======
+    public GameObject gameLogic;
 
     private float deadX = 7f;
-
-    private void Awake()
+    void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+
+    }
+
+    void Start()
+    {
+
     }
 
     void Update()
@@ -28,20 +41,27 @@ public class Otter : MonoBehaviour
 
     private void OnTriggerEnter(Collider collide)
     {
+        // Collision with Enemy
         if (collide.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Otter Hit Enemy");
+            gameLogic.GetComponent<GameLogic>().addOtterLife(-1);
+            Debug.Log("Otter Hit Enemy: " + gameLogic.GetComponent<GameLogic>().getOtterLife());
         }
 
+        // Collision with Reef
         if (collide.gameObject.CompareTag("Reef"))
+
+
         {
-            Debug.Log("Otter Hit Reef");
+            gameLogic.GetComponent<GameLogic>().addOtterLife(-1);
+            Debug.Log("Otter Hit Reef: " + gameLogic.GetComponent<GameLogic>().getOtterLife());
         }
 
-        if (collide.gameObject.CompareTag("Item"))
-        {
-            Debug.Log("Otter Hit Item");
-        }
+        // Collision with Item
+        // if (collide.gameObject.CompareTag("Item"))
+        // {
+        //     Debug.Log("Otter Hit Item");
+        // }
     }
 
     // Drag Movement
@@ -91,5 +111,10 @@ public class Otter : MonoBehaviour
         {
             whirlpoolEffect.ApplyEffect();
         }
+    }
+    // When Dies
+    public void OtterDeath()
+    {
+        Debug.Log("Otter Death");
     }
 }

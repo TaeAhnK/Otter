@@ -10,6 +10,7 @@ TagManager:
   - Reef
   - Item
   - Boss
+  - Logic
   layers:
   - Default
   - TransparentFX
