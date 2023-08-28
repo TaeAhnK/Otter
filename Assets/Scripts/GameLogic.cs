@@ -14,8 +14,6 @@ public class GameLogic : MonoBehaviour
     private int otterLife;          // Otter Life
     private int otterEXP;
 
-    
-
     // Enemy Info
     private float enemySpeed;       // Enemy Move Speed
     private float reefSpeed;        // Rate Move Speed
@@ -27,28 +25,28 @@ public class GameLogic : MonoBehaviour
     bool slow;                      // Slow enemy and reef
     bool doubleScore;               // Gets double score
 
-    //timer
-    private float timer = 0;
-
-    //Reef용 변수
-    public float SpawnRate = 2;
-    //동시다발 시 암초가 나오는 주기 
-    private float RealTime = 0;
-    //실제 시간
-    private float intervaltimer = 0;
-    //암초 나오는 주기를 확인하기 위한 타이머
-    private int count = 0;
-    //동시다발적으로 나올 때의 암초 개수
-    private bool flag = false;
-    private bool flag2 = false;
-    //Reef용 변수 여기까지
-
-    private float minSpawnDelay = 10f; // 적 생성 간격의 최소값
-    private float maxSpawnDelay = 15f;// 적 생성 간격의 최대값
-    private float nextSpawnTime;
-    
     void Start()
     {
+        //timer
+        private float timer = 0;
+
+        //Reef용 변수
+        public float SpawnRate = 2;
+        //동시다발 시 암초가 나오는 주기 
+        private float RealTime = 0;
+        //실제 시간
+        private float intervaltimer = 0;
+        //암초 나오는 주기를 확인하기 위한 타이머
+        private int count = 0;
+        //동시다발적으로 나올 때의 암초 개수
+        private bool flag = false;
+        private bool flag2 = false;
+        //Reef용 변수 여기까지
+
+        private float minSpawnDelay = 10f; // 적 생성 간격의 최소값
+        private float maxSpawnDelay = 15f;// 적 생성 간격의 최대값
+        private float nextSpawnTime;
+    
         SetNextSpawnTime();
         otterLife = 3;
     }
@@ -106,7 +104,6 @@ public class GameLogic : MonoBehaviour
     public float getEnemySpeed()
     {
         return enemySpeed;
-        
     }
 
     public void setEnemySpeed(float speed)
@@ -114,12 +111,10 @@ public class GameLogic : MonoBehaviour
         enemySpeed = speed;
     }
 
-
     public float getReefSpeed()
     {
         reefSpeed = 5;
         return reefSpeed;
-        
     }
 
     public void setReefSpeed(float speed)
