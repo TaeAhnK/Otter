@@ -1,20 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameLogic : MonoBehaviour
+
 {
     public GameObject otter;        // Otter Object
     public GameObject enemySpawner; // Enemy Spawner
     public GameObject reefSpawner;  // Reef Spawner
 
-    private int score;              // Score
+    public int score = 0;              // Score
 
     // Otter Info
-    private int otterLife;          // Otter Life
-    private int otterEXP;
+    private int otterLife = 100;          // Otter Life
+    private int otterEXP = 0;             // Otter Exp
+    public int otterDamage = 50;         // Otter Damage
+
 
     // Enemy Info
+    public int enemyLife = 100;
     private float enemySpeed;       // Enemy Move Speed
     private float reefSpeed;        // Rate Move Speed
 
@@ -70,9 +75,19 @@ public class GameLogic : MonoBehaviour
         return otter.transform.position;
     }
 
+    public int getEnemyLife()
+    {
+        return enemyLife;
+    }
+
     public float getEnemySpeed()
     {
         return enemySpeed;
+    }
+
+    public void getEnemyDamage()
+    {
+        enemyLife -= otterDamage;
     }
 
     public void setEnemySpeed(float speed)
