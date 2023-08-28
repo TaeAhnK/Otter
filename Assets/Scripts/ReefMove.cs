@@ -20,11 +20,11 @@ public class ReefMove : MonoBehaviour
     {
 
         mspeed = logic.SpeedControl();
-        
+
         transform.position = transform.position + (Vector3.back * mspeed) * Time.deltaTime;
-        
+
         //파이프가 일정 구간 넘어가면(deadZone) 암초를 없앰
-        if (transform.position.z<deadZone)
+        if (transform.position.z < deadZone)
         {
             Destroy(gameObject);
         }

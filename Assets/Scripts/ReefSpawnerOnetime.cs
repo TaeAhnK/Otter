@@ -18,7 +18,6 @@ public class ReefSpawner : MonoBehaviour
 
     private Transform target; // 암초가 가리킬 대상 //해달
 
-    public GameObject Reef;
     //암초 위치 배열
     int[] numbers = new int[5] { -3, -1, 0, 1, 3 };
 
