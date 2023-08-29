@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6426295472164596451}
   - component: {fileID: 2539661634765836220}
   - component: {fileID: 1757418032556261102}
+  - component: {fileID: 7077227720207936343}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Enemy
@@ -147,3 +148,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 118
   m_CollisionDetection: 0
+--- !u!114 &7077227720207936343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7262391919889175060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b633533ffd8f37d4c840b29f78bd90f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  otter: {fileID: 0}
+  enemySpawner: {fileID: 0}
+  reefSpawner: {fileID: 0}
+  score: 0
+  otterDamage: 50
+  enemyLife: 100
