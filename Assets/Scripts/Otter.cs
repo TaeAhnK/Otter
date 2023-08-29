@@ -35,6 +35,7 @@ public class Otter : MonoBehaviour
         if (collide.gameObject.CompareTag("Item"))
         {
             Debug.Log("Otter Hit Item");
+            
         }
     }
 

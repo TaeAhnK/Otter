@@ -10,7 +10,7 @@ public class NewBehaviourScript : MonoBehaviour
     private float minZ = -6f;
 
     [SerializeField]
-    //private float hp = 1f;//(set enemy hp)
+    
 
     void Start()
     {
@@ -38,16 +38,5 @@ public class NewBehaviourScript : MonoBehaviour
     }
 
 
-    //private void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if (other.gameObject.tag == "Weapon")
-    //     {
-    //         Weapon weapon = other.gameobject.GetComponent<weapon>();
-    //         hp -= weapon.damage;
-    //         if (hp <= 0)
-    //         {
-    //             Destroy(gameObject);
-    //         }
-
-    //    }
+  
 }

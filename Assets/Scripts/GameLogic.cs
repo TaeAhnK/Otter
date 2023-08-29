@@ -29,9 +29,17 @@ public class GameLogic : MonoBehaviour
     bool slow;                      // Slow enemy and reef
     bool doubleScore;               // Gets double score
 
+
+    private float slowDuration = 5f; // 슬로우 지속 시간 (초)
+    private float originalEnemySpeed;
+    private float originalReefSpeed;
+    private float slowedEnemySpeed;
+    private float slowedReefSpeed;
+
+
     void Start()
     {
-
+       
     }
 
     void Update()
@@ -126,21 +134,44 @@ public class GameLogic : MonoBehaviour
 
     private void activateHyperWave()
     {
-        
+
     }
 
     private void activateSeaWhirl()
     {
-        
+
     }
+
 
     private void activateSlow()
     {
-        
-    }
+        originalEnemySpeed = getEnemySpeed();
+        originalReefSpeed = getReefSpeed();
 
-    private void activateDoubleScore()
+        slowedEnemySpeed = originalEnemySpeed * 0.5f;
+        setEnemySpeed(slowedEnemySpeed);
+
+        slowedReefSpeed = originalReefSpeed * 0.5f;
+        setReefSpeed(slowedReefSpeed);
+
+        StartCoroutine(ResetSpeedAfterDelay());
+
+
+    }
+    private IEnumerator ResetSpeedAfterDelay()
     {
         
+            yield return new WaitForSeconds(slowDuration);
+
+            // 원상 복구
+            setEnemySpeed(originalEnemySpeed);
+            setReefSpeed(originalReefSpeed);
+        
     }
+    private void activateDoubleScore()
+    {
+
+
+    }
+    
 }
