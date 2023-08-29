@@ -17,7 +17,6 @@ public class GameLogic : MonoBehaviour
     private int otterEXP = 0;             // Otter Exp
     public int otterDamage = 50;         // Otter Damage
 
-
     // Enemy Info
     public int enemyLife = 100;
     private float enemySpeed;       // Enemy Move Speed
@@ -118,5 +117,30 @@ public class GameLogic : MonoBehaviour
     private void spawnBoss()
     {
 
+    }
+
+    private void activateBabyOtter()
+    {
+
+    }
+
+    private void activateHyperWave()
+    {
+        
+    }
+
+    private void activateSeaWhirl()
+    {
+        
+    }
+
+    private void activateSlow()
+    {
+        
+    }
+
+    private void activateDoubleScore()
+    {
+        
     }
 }
