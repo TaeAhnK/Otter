@@ -22,10 +22,10 @@ public class BabyOtter : MonoBehaviour
         babyOtter.otter = this.otter; // otter 변수 대신에 this.otter 사용
 
         // 듀얼샷 공격 활성화
-        otter.EnableDualShot();
+        //otter.EnableDualShot();
 
         // 아기해달 적용 시간이 끝나면 아이템 효과 종료
-        StartCoroutine(DeactivateBabyOtterEffect());
+        //StartCoroutine(DeactivateBabyOtterEffect());
     }
 
     private IEnumerator DeactivateBabyOtterEffect()
@@ -33,7 +33,7 @@ public class BabyOtter : MonoBehaviour
         yield return new WaitForSeconds(defaultDuration);
 
         // 듀얼샷 비활성화
-        otter.DeactivateBabyOtterEffect();
+        //otter.DeactivateBabyOtterEffect();
 
         // 아기해달 제거
         Transform babyOtterTransform = transform.Find("BabyOtter(Clone)");
