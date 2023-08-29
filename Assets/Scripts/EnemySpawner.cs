@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
 
     // enemy spawn speed
     [SerializeField]
-    public float spawnInterval = 3f;
+    private float spawnInterval = 2.5f;
 
 
     void Start()
@@ -20,14 +20,14 @@ public class EnemySpawner : MonoBehaviour
         StartEnemyRoutine();
     }
 
-    public void StartEnemyRoutine()
+    void StartEnemyRoutine()
     {
         StartCoroutine("EnemyRoutine");
     }
 
     IEnumerator EnemyRoutine()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2f);
 
         int spawnCount = 0;
         int enemyIndex = 0;
