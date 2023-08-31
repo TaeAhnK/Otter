@@ -9,6 +9,7 @@ public class GameLogic : MonoBehaviour
     public GameObject otter;        // Otter Object
     public GameObject enemySpawner; // Enemy Spawner
     public GameObject reefSpawner;  // Reef Spawner
+    public GameObject ShellShooterBabyOtter;
 
     public int score = 0;              // Score
 
@@ -23,20 +24,30 @@ public class GameLogic : MonoBehaviour
     private float reefSpeed;        // Rate Move Speed
 
     // Item Activation
-    bool babyOtter;                 // Dual Shot
+    bool babyOtter;         // Dual Shot
     bool hyperWave;                 // Invinsible
     bool seaWirl;                   // Magnet
     bool slow;                      // Slow enemy and reef
     bool doubleScore;               // Gets double score
 
+    private float timer = 0;
+    private float babyotterTime = 4;
+    
+
+
     void Start()
     {
-
+        
+        
     }
 
     void Update()
     {
+        timer += Time.deltaTime;
+        //Debug.Log(timer);
+        activateBabyOtter();
 
+        
     }
 
     public int getScore()
@@ -121,7 +132,19 @@ public class GameLogic : MonoBehaviour
 
     private void activateBabyOtter()
     {
-
+        //쉘슈터 활성화
+        
+        if (timer<babyotterTime)
+        {
+            ShellShooterBabyOtter.SetActive(true);
+        }
+        else
+        {
+            ShellShooterBabyOtter.SetActive(false);
+            Debug.Log("false Test");
+            Debug.Log(timer);
+            timer = 0;
+        }
     }
 
     private void activateHyperWave()
