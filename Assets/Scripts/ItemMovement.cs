@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemMovement : MonoBehaviour
 {
+    private float deadZ = -6;
+
     void Start()
     {
 
@@ -12,5 +14,9 @@ public class ItemMovement : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * -3f * Time.deltaTime);
+        if (transform.position.z < deadZ)
+        {
+            Destroy(gameObject);
+        }
     }
 }

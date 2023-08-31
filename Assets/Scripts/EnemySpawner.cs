@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject[] enemies;
+    [SerializeField] private GameObject[] enemies;
 
-    // 적위치
+    // 적 위치
     private float[] arrPosX = { -3f, -1.5f, 0f, 1.5f, 3f };
 
     // enemy spawn speed
-    [SerializeField]
-    public float spawnInterval = 3f;
+    [SerializeField] public float spawnInterval = 3f;
 
 
     void Start()
@@ -23,6 +21,11 @@ public class EnemySpawner : MonoBehaviour
     public void StartEnemyRoutine()
     {
         StartCoroutine("EnemyRoutine");
+    }
+
+    void Update()
+    {
+
     }
 
     IEnumerator EnemyRoutine()
@@ -62,7 +65,7 @@ public class EnemySpawner : MonoBehaviour
         }
 
 
-        //적의 수를 넘어가지않게 오류 방\지 (max enemy5)
+        //적의 수를 넘어가지않게 오류 방지 (max enemy 5)
         if (index >= enemies.Length)
         {
             index = enemies.Length - 1;
@@ -71,12 +74,6 @@ public class EnemySpawner : MonoBehaviour
         Instantiate(enemies[index], spawnPos, Quaternion.identity);
 
 
-
-    }
-
-
-    void Update()
-    {
 
     }
 }

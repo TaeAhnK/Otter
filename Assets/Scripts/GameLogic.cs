@@ -8,39 +8,35 @@ public class GameLogic : MonoBehaviour
     public GameObject enemySpawner; // Enemy Spawner
     public GameObject reefSpawner;  // Reef Spawner
 
-    private int score;              // Score
+    private int score = 0;              // Score
 
     // Otter Info
     private int otterLife;          // Otter Life
     private int otterEXP;
 
     // Enemy Info
-    private float enemySpeed;       // Enemy Move Speed
-    private float reefSpeed;        // Rate Move Speed
+    private float enemySpeed = 5f;       // Enemy Move Speed
+    private float reefSpeed;            // Rate Move Speed
 
     // Item Activation
-    bool babyOtter;                 // Dual Shot
-    bool hyperWave;                 // Invinsible
-    bool seaWirl;                   // Magnet
-    bool slow;                      // Slow enemy and reef
-    bool doubleScore;               // Gets double score
+    public bool babyOtter;                 // Dual Shot
+    public bool hyperWave;                 // Invinsible
+    public bool seaWirl;                   // Magnet
+    public bool slow;                      // Slow enemy and reef
+    public bool doubleScore;               // Gets double score
 
-    //timer
+    // timer
     private float timer = 0;
 
-    //Reef용 변수
-    public float SpawnRate = 2;
-    //동시다발 시 암초가 나오는 주기 
-    private float RealTime = 0;
-    //실제 시간
-    private float intervaltimer = 0;
-    //암초 나오는 주기를 확인하기 위한 타이머
-    private int count = 0;
-    //동시다발적으로 나올 때의 암초 개수
+    // Reef용 변수
+    public float SpawnRate = 2;             // 동시다발 시 암초가 나오는 주기 
+    private float RealTime = 0;             // 실제 시간
+    private float intervaltimer = 0;        // 암초 나오는 주기를 확인하기 위한 타이머
+    private int count = 0;                  // 동시다발적으로 나올 때의 암초 개수
     private bool flag = false;
     private bool flag2 = false;
-    //Reef용 변수 여기까지
 
+    // Enemy 변수
     private float minSpawnDelay = 10f; // 적 생성 간격의 최소값
     private float maxSpawnDelay = 15f;// 적 생성 간격의 최대값
     private float nextSpawnTime;
