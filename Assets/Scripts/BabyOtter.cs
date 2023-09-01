@@ -18,7 +18,7 @@ public class BabyOtter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Otter"))
         {
             gameLogic.babyOtter = true;
             Destroy(gameObject); // 아이템을 획득하면 아이템 제거

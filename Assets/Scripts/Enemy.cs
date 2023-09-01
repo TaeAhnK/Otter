@@ -5,10 +5,10 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private int health;
+    [SerializeField] private GameObject[] items;
     private float minZ = -6f;
 
     private GameLogic gameLogic;
-    public GameObject item;
 
     void Start()
     {
@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
             {
                 Destroy(gameObject);
                 gameLogic.addScore(10);
-                Instantiate(item, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+                Instantiate(items[Random.Range(0, 5)], new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             }
         }
     }
