@@ -5,9 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemies;
-
-    // 적 위치
-    private float[] arrPosX = { -3f, -1.5f, 0f, 1.5f, 3f };
+    private GameLogic gameLogic;
 
     // enemy spawn speed
     [SerializeField] public float spawnInterval = 3f;
@@ -15,6 +13,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+        gameLogic = GameObject.FindWithTag("Logic").GetComponent<GameLogic>();
         StartEnemyRoutine();
     }
 
@@ -37,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
 
         while (true)
         {
-            foreach (float posX in arrPosX)
+            foreach (float posX in gameLogic.getSpawnPosX())
             {
                 SpawnEnemy(posX, enemyIndex);
 

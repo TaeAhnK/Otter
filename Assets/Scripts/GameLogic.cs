@@ -16,7 +16,7 @@ public class GameLogic : MonoBehaviour
 
     // Enemy Info
     private float enemySpeed = 5f;       // Enemy Move Speed
-    private float reefSpeed;            // Rate Move Speed
+    private float reefSpeed = 5f;            // Rate Move Speed
 
     // Item Activation
     public bool babyOtter;                 // Dual Shot
@@ -28,7 +28,10 @@ public class GameLogic : MonoBehaviour
     // timer
     private float timer = 0;
 
-    // Reef용 변수
+    // Reef, Enemy 생성 좌표
+    private float[] spawnPosX = { -3f, -1.5f, 0f, 1.5f, 3f };
+
+    // Reef 변수
     public float SpawnRate = 2;             // 동시다발 시 암초가 나오는 주기 
     private float RealTime = 0;             // 실제 시간
     private float intervaltimer = 0;        // 암초 나오는 주기를 확인하기 위한 타이머
@@ -63,24 +66,25 @@ public class GameLogic : MonoBehaviour
         }
     }
 
+    // Score Method
     public int getScore()
     {
         return score;
     }
 
+    public void addScore(int add)
+    {
+        score += add;
+    }
     public int getOtterLife()
     {
         return otterLife;
     }
 
+    // Otter Info Method
     public int getOtterEXP()
     {
         return otterEXP;
-    }
-
-    public void addScore(int add)
-    {
-        score += add;
     }
 
     public void addOtterLife(int add)
@@ -98,16 +102,13 @@ public class GameLogic : MonoBehaviour
         return otter.transform.position;
     }
 
-    public float getEnemySpeed()
+    // Spawner Method
+    public float[] getSpawnPosX()
     {
-        return enemySpeed;
+        return spawnPosX;
     }
 
-    public void setEnemySpeed(float speed)
-    {
-        enemySpeed = speed;
-    }
-
+    // Reef Method    
     public float getReefSpeed()
     {
         reefSpeed = 5;
@@ -179,6 +180,22 @@ public class GameLogic : MonoBehaviour
 
         }
     }
+    private void spawnReef()
+    {
+
+    }
+
+    // Enemy Method
+    public float getEnemySpeed()
+    {
+        return enemySpeed;
+    }
+
+    public void setEnemySpeed(float speed)
+    {
+        enemySpeed = speed;
+    }
+
 
     private void spawnEnemy()
     {
@@ -189,10 +206,6 @@ public class GameLogic : MonoBehaviour
     {
         float randomDelay = Random.Range(minSpawnDelay, maxSpawnDelay);
         nextSpawnTime = Time.time + randomDelay; // Set the time for the next enemy spawn.
-
-    }
-    private void spawnReef()
-    {
 
     }
 
