@@ -54,10 +54,12 @@ public class GameLogic : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        //Reef
+        
+        // Reef
         RealTime += Time.deltaTime;
         intervaltimer += Time.deltaTime;
 
+        // Enemy
         setReefIntervalSpeed();
         if (Time.time >= nextSpawnTime)
         {

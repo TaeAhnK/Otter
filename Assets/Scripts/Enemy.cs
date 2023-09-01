@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private int health = 100;
+    [SerializeField] private int health;
     private float minZ = -6f;
 
     private GameLogic gameLogic;

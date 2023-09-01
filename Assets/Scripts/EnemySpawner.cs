@@ -39,7 +39,6 @@ public class EnemySpawner : MonoBehaviour
             foreach (float posX in gameLogic.getSpawnPosX())
             {
                 SpawnEnemy(posX, enemyIndex);
-
             }
 
             spawnCount += 1;
