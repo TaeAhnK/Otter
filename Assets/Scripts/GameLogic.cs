@@ -45,6 +45,13 @@ public class GameLogic : MonoBehaviour
     private float maxSpawnDelay = 15f;// 적 생성 간격의 최대값
     private float nextSpawnTime;
 
+    // Slow 변수
+    private float slowDuration = 5f; // 슬로우 지속 시간 (초)
+    private float originalEnemySpeed;
+    private float originalReefSpeed;
+    private float slowedEnemySpeed;
+    private float slowedReefSpeed;
+
     void Start()
     {
 
@@ -55,7 +62,7 @@ public class GameLogic : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        
+
         // Reef
         RealTime += Time.deltaTime;
         intervaltimer += Time.deltaTime;
@@ -219,6 +226,33 @@ public class GameLogic : MonoBehaviour
     }
     private void spawnBoss()
     {
+
+    }
+
+    // Slow
+    private void activateSlow()
+    {
+        originalEnemySpeed = getEnemySpeed();
+        originalReefSpeed = getReefSpeed();
+
+        slowedEnemySpeed = originalEnemySpeed * 0.5f;
+        setEnemySpeed(slowedEnemySpeed);
+
+        slowedReefSpeed = originalReefSpeed * 0.5f;
+        setReefSpeed(slowedReefSpeed);
+
+        StartCoroutine(ResetSpeedAfterDelay());
+
+
+    }
+    private IEnumerator ResetSpeedAfterDelay()
+    {
+
+        yield return new WaitForSeconds(slowDuration);
+
+        // 원상 복구
+        setEnemySpeed(originalEnemySpeed);
+        setReefSpeed(originalReefSpeed);
 
     }
 }
