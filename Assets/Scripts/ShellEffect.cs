@@ -28,7 +28,7 @@ public class ShellEffect : MonoBehaviour
         {
             Destroy(this.gameObject);        //총알사라짐
             logic.getEnemyDamage();          //총알데미지 만큼 적 피 깎임
-            if (logic.enemyLife <= 0)        // 적 체력 0되면 적 사라지고 아이템 드랍, 스코어상승
+            if (logic.getEnemyLife() <= 0)        // 적 체력 0되면 적 사라지고 아이템 드랍, 스코어상승
             {
                 Destroy(collide.gameObject);
                 logic.addScore(10);

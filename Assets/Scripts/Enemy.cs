@@ -5,7 +5,7 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
     [SerializeField]
-    private float moveSpeed = 5f;
+    private float enemySpeed = 5f;
 
     private float minZ = -6f;
 
@@ -20,7 +20,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     void Update()
     {
-        transform.position += Vector3.back * moveSpeed * Time.deltaTime;
+        transform.position += Vector3.back * enemySpeed * Time.deltaTime;
         if (transform.position.z < minZ)
         {
             Destroy(gameObject);

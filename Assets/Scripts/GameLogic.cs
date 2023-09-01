@@ -10,17 +10,17 @@ public class GameLogic : MonoBehaviour
     public GameObject enemySpawner; // Enemy Spawner
     public GameObject reefSpawner;  // Reef Spawner
 
-    public int score = 0;              // Score
+    private int score = 0;              // Score
 
     // Otter Info
     private int otterLife = 100;          // Otter Life
     private int otterEXP = 0;             // Otter Exp
-    public int otterDamage = 50;         // Otter Damage
+    private int otterDamage = 50;         // Otter Damage
 
     // Enemy Info
-    public int enemyLife = 100;
-    private float enemySpeed;       // Enemy Move Speed
-    private float reefSpeed;        // Rate Move Speed
+    private int enemyLife = 100;
+    private float enemySpeed = 5f;       // Enemy Move Speed
+    private float reefSpeed = 5;        // Rate Move Speed
 
     // Item Activation
     bool babyOtter;                 // Dual Shot
@@ -126,7 +126,23 @@ public class GameLogic : MonoBehaviour
 
     private void activateHyperWave()
     {
-        
+        float timer=0.0f;                  // 타이머 설정
+        timer+=Time.deltaTime;
+        if (timer>0.1f)
+            {
+                reefSpeed=5;
+                enemySpeed=5f;
+                otterLife=100;
+                
+            }
+
+        else
+        {
+            reefSpeed=10;
+            enemySpeed=10f;
+            otterLife=1000000;
+        }
+
     }
 
     private void activateSeaWhirl()
