@@ -10,14 +10,13 @@ public class EnemySpawner : MonoBehaviour
     // enemy spawn speed
     [SerializeField] public float spawnInterval = 3f;
 
-
     void Start()
     {
         gameLogic = GameObject.FindWithTag("Logic").GetComponent<GameLogic>();
         StartEnemyRoutine();
     }
 
-    public void StartEnemyRoutine()
+    void StartEnemyRoutine()
     {
         StartCoroutine("EnemyRoutine");
     }
@@ -29,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator EnemyRoutine()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2f);
 
         int spawnCount = 0;
         int enemyIndex = 0;

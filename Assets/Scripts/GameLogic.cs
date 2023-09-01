@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameLogic : MonoBehaviour
+
 {
     public GameObject otter;        // Otter Object
     public GameObject enemySpawner; // Enemy Spawner
@@ -11,8 +13,9 @@ public class GameLogic : MonoBehaviour
     private int score = 0;              // Score
 
     // Otter Info
-    private int otterLife;          // Otter Life
-    private int otterEXP;
+    private int otterLife = 100;          // Otter Life
+    private int otterEXP = 0;             // Otter Exp
+    public int otterDamage = 50;         // Otter Damage
 
     // Speed Info
     private float enemySpeed = 5f;          // Enemy Move Speed
@@ -48,8 +51,6 @@ public class GameLogic : MonoBehaviour
     void Start()
     {
 
-        SetNextSpawnTime();
-        otterLife = 3;
     }
 
     void Update()
@@ -114,7 +115,6 @@ public class GameLogic : MonoBehaviour
     // Reef Method    
     public float getReefSpeed()
     {
-        reefSpeed = 5;
         return reefSpeed;
     }
 
@@ -123,65 +123,14 @@ public class GameLogic : MonoBehaviour
         reefSpeed = speed;
     }
 
-    public float SpeedControl()
+    private void spawnEnemy()
     {
-        //속도조절
-        //시간이 지날수록 속도 증가
-        reefSpeed = getReefSpeed();
-
-        if (timer == 5 || timer > 5)
-        {
-            reefSpeed += 1;  // 속도 증가
-            Debug.Log("속도 1 증가");
-            timer = 0;  // 시간 초기화
-            Debug.Log(reefSpeed);
-        }
-
-        //setReefSpeed(reefSpeed);
-        return reefSpeed;
 
     }
 
-    public void setReefIntervalSpeed()
+    private void spawnReef()
     {
-        if (flag == true && RealTime > 10)
-        //실제 시간이 10초가 됐을 때 동시다발적
-        {
 
-            if (flag2 == false && intervaltimer > SpawnRate)
-            //SpawnRate마다 암초가 나오도록
-            {
-                //Debug.Log("동시다발");
-                reefSpawner.GetComponent<ReefSpawner>().SpawnReef();
-                count++;
-                //Debug.Log("더하기");
-                intervaltimer = 0;
-
-                if (count > 5)
-                //나온 암초가 5개가 돼었을 때
-                {
-                    count = 0;
-                    //암초개수 초기화
-                    RealTime = 0;
-                    //실제시간 초기화
-                    flag = false;
-                    flag2 = true;
-                }
-                flag2 = false;
-            }
-
-        }
-
-        if (flag == false && RealTime > 5)
-        //실제 시간이 5초가 됐을 때
-        {
-            reefSpawner.GetComponent<ReefSpawner>().SpawnReef();
-            flag = true;
-            //flag를 true로 변경시켜 맨 위의 if문으로 이동
-            RealTime += Time.deltaTime;
-            //Debug.Log("한 번");
-
-        }
     }
     private void spawnReef()
     {
@@ -200,15 +149,13 @@ public class GameLogic : MonoBehaviour
     }
 
 
-    private void spawnEnemy()
+    private void spawnBoss()
     {
 
     }
 
-    private void SetNextSpawnTime()
+    private void activateBabyOtter()
     {
-        float randomDelay = Random.Range(minSpawnDelay, maxSpawnDelay);
-        nextSpawnTime = Time.time + randomDelay; // Set the time for the next enemy spawn.
 
     }
 
@@ -219,6 +166,26 @@ public class GameLogic : MonoBehaviour
     }
     private void spawnBoss()
     {
+    
+    }
 
+    private void activateHyperWave()
+    {
+        
+    }
+
+    private void activateSeaWhirl()
+    {
+        
+    }
+
+    private void activateSlow()
+    {
+    
+    }
+
+    private void activateDoubleScore()
+    {
+        
     }
 }

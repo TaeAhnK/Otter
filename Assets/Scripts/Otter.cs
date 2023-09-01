@@ -25,25 +25,20 @@ public class Otter : MonoBehaviour
 
     private void OnTriggerEnter(Collider collide)
     {
-        // Collision with Enemy
         if (collide.gameObject.CompareTag("Enemy"))
         {
-            gameLogic.GetComponent<GameLogic>().addOtterLife(-1);
-            Debug.Log("Otter Hit Enemy: " + gameLogic.GetComponent<GameLogic>().getOtterLife());
+            Debug.Log("Otter Hit Enemy");
         }
 
-        // Collision with Reef
         if (collide.gameObject.CompareTag("Reef"))
         {
-            gameLogic.GetComponent<GameLogic>().addOtterLife(-1);
-            Debug.Log("Otter Hit Reef: " + gameLogic.GetComponent<GameLogic>().getOtterLife());
+            Debug.Log("Otter Hit Reef");
         }
 
-        // Collision with Item
-        // if (collide.gameObject.CompareTag("Item"))
-        // {
-        //     Debug.Log("Otter Hit Item");
-        // }
+        if (collide.gameObject.CompareTag("Item"))
+        {
+            Debug.Log("Otter Hit Item");
+        }
     }
 
     // Drag Movement

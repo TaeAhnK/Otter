@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ReefSpawner : MonoBehaviour
 {
+
     public GameObject Reef;
     private GameLogic gameLogic;
     public float SpawnRate = 2;
@@ -18,9 +19,6 @@ public class ReefSpawner : MonoBehaviour
     private bool flag2 = false;
 
     private Transform target; // 암초가 가리킬 대상 //해달
-
-    //암초 위치 배열
-    int[] numbers = new int[5] { -3, -1, 0, 1, 3 };
 
     private void Start()
     {
@@ -72,8 +70,7 @@ public class ReefSpawner : MonoBehaviour
         }
     }
 
-
-    public void SpawnReef()
+    void SpawnReef()
     {
         // 배열에서 랜덤한 인덱스를 생성
         int randomIndex = Random.Range(0, 5);
