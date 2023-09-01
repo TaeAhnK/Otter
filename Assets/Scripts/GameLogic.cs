@@ -14,9 +14,10 @@ public class GameLogic : MonoBehaviour
     private int otterLife;          // Otter Life
     private int otterEXP;
 
-    // Enemy Info
-    private float enemySpeed = 5f;       // Enemy Move Speed
-    private float reefSpeed = 5f;            // Rate Move Speed
+    // Speed Info
+    private float enemySpeed = 5f;          // Enemy Move Speed
+    private float reefSpeed = 5f;           // Rate Move Speed
+    private float itemSpeed = 5f;
 
     // Item Activation
     public bool babyOtter;                 // Dual Shot
@@ -211,6 +212,11 @@ public class GameLogic : MonoBehaviour
 
     }
 
+    // Item Method
+    public float getItemSpeed()
+    {
+        return itemSpeed;
+    }
     private void spawnBoss()
     {
 
