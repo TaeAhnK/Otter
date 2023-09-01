@@ -238,6 +238,22 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &652080412
+  m_GameObject: {fileID: 87540635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b633533ffd8f37d4c840b29f78bd90f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  otter: {fileID: 1498586040}
+  enemySpawner: {fileID: 1514002580}
+  reefSpawner: {fileID: 810386654}
+  babyOtter: 0
+  hyperWave: 0
+  seaWirl: 0
+  slow: 0
+  doubleScore: 0
+  SpawnRate: 2
+--- !u!4 &490867715
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

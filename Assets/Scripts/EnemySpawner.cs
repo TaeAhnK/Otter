@@ -4,40 +4,41 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject[] enemies;
-
-    // 적위치
-    private float[] arrPosX = { -3f, -1.5f, 0f, 1.5f, 3f };
+    [SerializeField] private GameObject[] enemies;
+    private GameLogic gameLogic;
 
     // enemy spawn speed
-    [SerializeField]
-    private float spawnInterval = 2.5f;
+    [SerializeField] public float spawnInterval = 3f;
 
 
     void Start()
     {
+        gameLogic = GameObject.FindWithTag("Logic").GetComponent<GameLogic>();
         StartEnemyRoutine();
     }
 
-    void StartEnemyRoutine()
+    public void StartEnemyRoutine()
     {
         StartCoroutine("EnemyRoutine");
     }
 
+    void Update()
+    {
+
+    }
+
     IEnumerator EnemyRoutine()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2);
 
         int spawnCount = 0;
         int enemyIndex = 0;
 
         while (true)
         {
-            foreach (float posX in arrPosX)
+            foreach (float posX in gameLogic.getSpawnPosX())
             {
                 SpawnEnemy(posX, enemyIndex);
-
             }
 
             spawnCount += 1;
@@ -62,7 +63,7 @@ public class EnemySpawner : MonoBehaviour
         }
 
 
-        //적의 수를 넘어가지않게 오류 방\지 (max enemy5)
+        //적의 수를 넘어가지않게 오류 방지 (max enemy 5)
         if (index >= enemies.Length)
         {
             index = enemies.Length - 1;
@@ -71,12 +72,6 @@ public class EnemySpawner : MonoBehaviour
         Instantiate(enemies[index], spawnPos, Quaternion.identity);
 
 
-
-    }
-
-
-    void Update()
-    {
 
     }
 }

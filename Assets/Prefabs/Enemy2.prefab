@@ -99,7 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f79daedadb64408afd5215e8c995a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  health: 100
+  items:
+  - {fileID: 7314459952435883607, guid: 0307f3b1ed1ebbb41a3e654cfceb35cd, type: 3}
+  - {fileID: 7314459952435883607, guid: 381711ce17d7a914c9e7a820858ac8e7, type: 3}
+  - {fileID: 7314459952435883607, guid: 4ecfb50f5ca482f46b373db0739fc432, type: 3}
+  - {fileID: 7314459952435883607, guid: e5872c0adaa41a94680f9ae263bcf23e, type: 3}
+  - {fileID: 7314459952435883607, guid: 7e212da78bf4af444b1f5d86ed803308, type: 3}
+  item: {fileID: 2800206471900333499, guid: f593c5fd0bc0f404a81a86cc6adc8c44, type: 3}
 --- !u!65 &2539661634765836220
 BoxCollider:
   m_ObjectHideFlags: 0
