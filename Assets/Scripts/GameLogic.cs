@@ -45,6 +45,10 @@ public class GameLogic : MonoBehaviour
     private float maxSpawnDelay = 15f;// 적 생성 간격의 최대값
     private float nextSpawnTime;
 
+    // BabyOtter 변수
+    public GameObject ShellShooterBabyOtter;
+    private float babyotterTime = 4;
+
     // Slow 변수
     private float slowDuration = 5f; // 슬로우 지속 시간 (초)
     private float originalEnemySpeed;
@@ -227,6 +231,24 @@ public class GameLogic : MonoBehaviour
     private void spawnBoss()
     {
 
+    }
+
+    // BabyOtter
+    private void activateBabyOtter()
+    {
+        //쉘슈터 활성화
+
+        if (timer < babyotterTime)
+        {
+            ShellShooterBabyOtter.SetActive(true);
+        }
+        else
+        {
+            ShellShooterBabyOtter.SetActive(false);
+            Debug.Log("false Test");
+            Debug.Log(timer);
+            timer = 0;
+        }
     }
 
     // Slow

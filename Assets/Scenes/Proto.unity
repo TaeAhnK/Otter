@@ -207,6 +207,7 @@ MonoBehaviour:
   slow: 0
   doubleScore: 0
   SpawnRate: 2
+  ShellShooterBabyOtter: {fileID: 594768565}
 --- !u!4 &490867715
 Transform:
   m_ObjectHideFlags: 0
@@ -222,6 +223,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &594768565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 594768566}
+  - component: {fileID: 594768567}
+  m_Layer: 0
+  m_Name: ShellShooterBabyOtter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &594768566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594768565}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.34761, y: 7.8251066, z: -5.061137}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &594768567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594768565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9691e7b03466824d8a505c2c9f111b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shellReady: {fileID: 1787452723181426167, guid: 501952cf01cb7df4a96d6d3a1e01853c, type: 3}
+  shellPos: {fileID: 1498586040}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,3 +893,4 @@ SceneRoots:
   - {fileID: 810386658}
   - {fileID: 1514002582}
   - {fileID: 87540637}
+  - {fileID: 594768566}
