@@ -201,6 +201,11 @@ MonoBehaviour:
   otter: {fileID: 1498586040}
   enemySpawner: {fileID: 1514002580}
   reefSpawner: {fileID: 810386654}
+  babyOtter: 0
+  hyperWave: 0
+  seaWirl: 0
+  slow: 0
+  doubleScore: 0
   SpawnRate: 2
 --- !u!4 &490867715
 Transform:
@@ -523,51 +528,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1 &1333644616
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1333644617}
-  - component: {fileID: 1333644618}
-  m_Layer: 0
-  m_Name: ItemSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1333644617
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1333644616}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.36, z: 8.41}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1333644618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1333644616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05c2396881e948e408562a5cd0c526ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 2800206471900333499, guid: f593c5fd0bc0f404a81a86cc6adc8c44, type: 3}
 --- !u!1 &1498586040
 GameObject:
   m_ObjectHideFlags: 0
@@ -884,6 +844,5 @@ SceneRoots:
   - {fileID: 1498586044}
   - {fileID: 490867715}
   - {fileID: 810386658}
-  - {fileID: 1333644617}
   - {fileID: 1514002582}
   - {fileID: 87540637}
