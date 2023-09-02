@@ -5,7 +5,7 @@ using UnityEngine;
 public class ThrowShell : MonoBehaviour
 {
     public float speed = 100; //이동속도
-    private float deadZ = 50f;
+    private float deadZ = 20f;
     void Start()
     {
 

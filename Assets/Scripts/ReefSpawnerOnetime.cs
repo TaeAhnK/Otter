@@ -35,7 +35,6 @@ public class ReefSpawner : MonoBehaviour
         if (flag == true && RealTime > 10)
         //실제 시간이 10초가 됐을 때 동시다발적
         {
-
             if (flag2 == false && timer > SpawnRate)
             //SpawnRate마다 암초가 나오도록
             {

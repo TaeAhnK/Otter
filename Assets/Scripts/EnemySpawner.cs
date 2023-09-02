@@ -8,17 +8,18 @@ public class EnemySpawner : MonoBehaviour
     private GameLogic gameLogic;
 
     // enemy spawn speed
-    [SerializeField] public float spawnInterval = 3f;
+    [SerializeField] public float spawnInterval = 10f;
 
 
     void Start()
     {
         gameLogic = GameObject.FindWithTag("Logic").GetComponent<GameLogic>();
-        StartEnemyRoutine();
+        //StartEnemyRoutine();
     }
 
     public void StartEnemyRoutine()
     {
+        Debug.Log("ddd");
         StartCoroutine("EnemyRoutine");
     }
 
@@ -49,8 +50,6 @@ public class EnemySpawner : MonoBehaviour
 
             yield return new WaitForSeconds(spawnInterval);
         }
-
-
     }
 
     void SpawnEnemy(float posX, int index)
@@ -62,7 +61,6 @@ public class EnemySpawner : MonoBehaviour
             index += 1;
         }
 
-
         //적의 수를 넘어가지않게 오류 방지 (max enemy 5)
         if (index >= enemies.Length)
         {
@@ -70,9 +68,6 @@ public class EnemySpawner : MonoBehaviour
         }
 
         Instantiate(enemies[index], spawnPos, Quaternion.identity);
-
-
-
     }
 }
 

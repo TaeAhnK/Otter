@@ -41,8 +41,8 @@ public class GameLogic : MonoBehaviour
     private bool flag2 = false;
 
     // Enemy 변수
-    private float minSpawnDelay = 10f; // 적 생성 간격의 최소값
-    private float maxSpawnDelay = 15f;// 적 생성 간격의 최대값
+    private float minSpawnDelay = 5f; // 적 생성 간격의 최소값
+    private float maxSpawnDelay = 10f;// 적 생성 간격의 최대값
     private float nextSpawnTime;
 
     // BabyOtter 변수
@@ -58,9 +58,8 @@ public class GameLogic : MonoBehaviour
 
     void Start()
     {
-
-        SetNextSpawnTime();
         otterLife = 3;
+        spawnEnemy();
     }
 
     void Update()
@@ -70,13 +69,13 @@ public class GameLogic : MonoBehaviour
         // Reef
         RealTime += Time.deltaTime;
         intervaltimer += Time.deltaTime;
+        setReefIntervalSpeed();
 
         // Enemy
-        setReefIntervalSpeed();
         if (Time.time >= nextSpawnTime)
         {
-            enemySpawner.GetComponent<EnemySpawner>().StartEnemyRoutine(); // Start spawning enemies using EnemySpawner.
             SetNextSpawnTime();
+            Debug.Log("Spawn" + nextSpawnTime);
         }
     }
 
@@ -125,7 +124,6 @@ public class GameLogic : MonoBehaviour
     // Reef Method    
     public float getReefSpeed()
     {
-        reefSpeed = 5;
         return reefSpeed;
     }
 
@@ -194,6 +192,7 @@ public class GameLogic : MonoBehaviour
 
         }
     }
+
     private void spawnReef()
     {
 
@@ -213,14 +212,14 @@ public class GameLogic : MonoBehaviour
 
     private void spawnEnemy()
     {
-
+        SetNextSpawnTime();
+        enemySpawner.GetComponent<EnemySpawner>().StartEnemyRoutine(); // Start spawning enemies using EnemySpawner.
     }
 
     private void SetNextSpawnTime()
     {
         float randomDelay = Random.Range(minSpawnDelay, maxSpawnDelay);
         nextSpawnTime = Time.time + randomDelay; // Set the time for the next enemy spawn.
-
     }
 
     // Item Method
@@ -228,6 +227,8 @@ public class GameLogic : MonoBehaviour
     {
         return itemSpeed;
     }
+
+    // Boss Method
     private void spawnBoss()
     {
 
@@ -264,9 +265,8 @@ public class GameLogic : MonoBehaviour
         setReefSpeed(slowedReefSpeed);
 
         StartCoroutine(ResetSpeedAfterDelay());
-
-
     }
+
     private IEnumerator ResetSpeedAfterDelay()
     {
 
