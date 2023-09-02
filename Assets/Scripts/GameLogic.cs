@@ -277,4 +277,26 @@ public class GameLogic : MonoBehaviour
         setReefSpeed(originalReefSpeed);
 
     }
+
+    // Hyper Wave
+    private void activateHyperWave()
+    {
+        float timer = 0.0f;                  // 타이머 설정
+        timer += Time.deltaTime;
+        if (timer > 0.1f)
+        {
+            reefSpeed = 5;
+            enemySpeed = 5f;
+            otterLife = 100;
+
+        }
+
+        else
+        {
+            reefSpeed = 10;
+            enemySpeed = 10f;
+            otterLife = 1000000;
+        }
+
+    }
 }
