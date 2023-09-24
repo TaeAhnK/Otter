@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Otter
+  - Shell
+  - Reef
+  - Item
+  - Boss
+  - Logic
   layers:
   - Default
   - TransparentFX
