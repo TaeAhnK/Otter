@@ -16,7 +16,7 @@ public class GameLogic : MonoBehaviour
 
     // Speed Info
     private float enemySpeed = 5f;          // Enemy Move Speed
-    private float reefSpeed = 5f;           // Rate Move Speed
+    private float reefSpeed = 15f;           // Rate Move Speed
     private float itemSpeed = 5f;
 
     // Item Activation
@@ -30,7 +30,7 @@ public class GameLogic : MonoBehaviour
     private float timer = 0;
 
     // Reef, Enemy 생성 좌표
-    private float[] spawnPosX = { -3f, -1.5f, 0f, 1.5f, 3f };
+    private float[] spawnPosX = { -13f, -6.5f, 0f, 6.5f, 13f };
 
     // Reef 변수
     public float SpawnRate = 2;             // 동시다발 시 암초가 나오는 주기 

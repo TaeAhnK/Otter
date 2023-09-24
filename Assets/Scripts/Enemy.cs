@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         gameLogic = GameObject.FindWithTag("Logic").GetComponent<GameLogic>();
+        transform.localPosition = transform.position;
     }
 
     void Update()

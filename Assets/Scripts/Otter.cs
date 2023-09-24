@@ -6,7 +6,7 @@ public class Otter : MonoBehaviour
 {
     public GameObject gameLogic;
 
-    private float deadX = 7f;
+    private float deadX = 30f;
 
     void Awake()
     {
@@ -52,7 +52,7 @@ public class Otter : MonoBehaviour
         if (Input.touchCount > 0)
         {
             //Debug.Log(0.01f * Input.GetTouch(0).position.x);
-            transform.position = new Vector3((Input.GetTouch(0).position.x - Screen.width / 2) * (deadX / Screen.width), 0, 0);
+            transform.position = new Vector3((Input.GetTouch(0).position.x - Screen.width / 2) * (deadX / Screen.width), -21, -25);
         }
     }
 

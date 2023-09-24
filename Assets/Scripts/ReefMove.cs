@@ -5,7 +5,7 @@ using UnityEngine;
 public class ReefMove : MonoBehaviour
 {
     private GameLogic logic;
-    public float deadZone = -10;
+    public float deadZone = -50f;
     private float rspeed;
     private float mspeed;
 
